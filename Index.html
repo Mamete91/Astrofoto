@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Mie Foto Astronomiche</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            background-image: url('images/sfondo-stelle.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #fff;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .photo {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        .photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .photo-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+        }
+        .social-share {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .social-share a {
+            display: inline-block;
+            margin: 0 5px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: none;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Le Mie Foto Astronomiche</h1>
+        <div class="gallery">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="images/Rho-Ophiuchi.jpg" alt="Rho Ophiuchi">
+                    <div class="photo-title">Rho Ophiuchi</div>
+                </div>
+                <div class="social-share">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://Mamete91.github.io/Astrofoto" target="_blank">Condividi su Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://Mamete91.github.io/Astrofoto&text=Guarda la mia foto di Rho Ophiuchi!" target="_blank">Condividi su Twitter</a>
+                </div>
+            </div>
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="images/M57.png" alt="M57">
+                    <div class="photo-title">M57</div>
+                </div>
+                <div class="social-share">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://Mamete91.github.io/Astrofoto" target="_blank">Condividi su Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://Mamete91.github.io/Astrofoto&text=Guarda la mia foto di M57!" target="_blank">Condividi su Twitter</a>
+                </div>
+            </div>
+            <!-- Puoi aggiungere altre foto qui seguendo lo stesso modello -->
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        var modal = document.getElementById("imageModal");
+        var modalImg = document.getElementById("modalImage");
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        document.querySelectorAll('.photo img').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
