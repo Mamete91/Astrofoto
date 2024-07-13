@@ -3,35 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotografie Astronomiche</title>
+    <title>Astrofotografie di Mamete91</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Le mie Fotografie Astronomiche</h1>
+        <h1>Esplorando l'Universo: Le Mie Astrofotografie</h1>
     </header>
+    
     <main>
-        <div class="gallery">
-            <div class="photo">
-                <img src="images/Rho-Ophiuchi.jpg" alt="Rho Ophiuchi" class="photo-img">
-                <div class="social-share">
-                    <a href="#" class="share-button" data-photo="Rho-Ophiuchi.jpg">Condividi</a>
-                </div>
-            </div>
-            <div class="photo">
-                <img src="images/M57.png" alt="M57" class="photo-img">
-                <div class="social-share">
-                    <a href="#" class="share-button" data-photo="M57.png">Condividi</a>
-                </div>
-            </div>
-            <!-- Aggiungi altre foto in modo simile -->
-        </div>
+        <section class="gallery">
+            <article class="photo-card">
+                <img src="images/Rho-Ophiuchi.jpg" alt="Nube di Rho Ophiuchi" class="astro-image">
+                <h2>Nube di Rho Ophiuchi</h2>
+                <p>Una colorata regione di formazione stellare</p>
+                <button class="share-btn" data-image="Rho-Ophiuchi.jpg">Condividi</button>
+            </article>
+            
+            <article class="photo-card">
+                <img src="images/M57.png" alt="Nebulosa Anello (M57)" class="astro-image">
+                <h2>Nebulosa Anello (M57)</h2>
+                <p>Una nebulosa planetaria nella costellazione della Lira</p>
+                <button class="share-btn" data-image="M57.png">Condividi</button>
+            </article>
+        </section>
     </main>
-    <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-image">
         <div id="caption"></div>
     </div>
-    <script src="scripts.js"></script>
+
+    <footer>
+        <p>&copy; 2024 Mamete91. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
